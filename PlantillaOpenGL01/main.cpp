@@ -22,22 +22,38 @@ using namespace std;
 // Variables booleanas para saber con cual ola se va a interactuar en el teclado
 bool wave1 = false;
 bool wave2 = false;
+
 float t; // Variable global para la animacion
 
 // Variables para ola 1
-float A1 = 0.0;
+float A1 = 0.4;
 float W1 = 0.0;
-float S1 = 0.0;
-float L1 = 0.0;
+float S1 = 2.0;
+float L1 = 8.0;
+float dirX1 = 0.0;
+float dirY1 = -1.0;
+float phi1 = 1.57;
+float D1[2] = {dirX1, dirY1};
 
 // Variables para ola 2
 float A2 = 0.0;
-float W2 = 0.0;
+float W2 = 4.0;
 float S2 = 0.0;
-float L2 = 0.0;
+float L2 = 4.0;
+float dirX2 = 1.0;
+float dirY2 = 1.0;
+float phi2 = 0.0;
+float D2[2] = {dirX2, dirY2};
+
+// Ecuacion 2
+float h = 0.0;
+
+float prodesc1 = 0.0;
+float prodesc2 = 0.0;
 
 // Ecuacion 2: No es sumatoria porque son dos olas nada más
-// H(x,y,t): (A1 x (sen(D1(x,y) x w1 + t x phi1) ) + (A2 x (sen(D2(x,y) x w2 + t x phi2) )
+// float H = (A1 * (sin(D1(x,y) * w1 + t * phi1) ) + (A2 * (sin(D2(x,y) * w2 + t * phi2) )
+
 // donde: w1 = 2*pi / L1
 // donde: w2 = 2*pi / L2
 // donde: phi1 = S1 x 2*pi / L1
@@ -104,11 +120,19 @@ void changeViewport(int w, int h) {
    glMatrixMode (GL_MODELVIEW);
 }
 
+float simulacion(float x, float y, float t) {
+
+	prodesc1 = dirX1*x + dirY1*y;
+	prodesc2 = dirX2*x + dirY2*y;
+	//printf("%f", prodesc1);
+	h = (A1 * (sin(prodesc1 * W1 + t * phi1) ) ) + (A2 * (sin(prodesc2 * W2 + t * phi2) ) );
+	//printf("%f", h);
+	return h;
+}
+
 void animacion(int value) {
 	
-	t+= 0.1;
-
-	// Aqui va algo con lo del seno de t 
+	t += 0.1;
 
 	glutTimerFunc(10,animacion,1);
     glutPostRedisplay();
@@ -357,6 +381,13 @@ void render() {
 	}
 	glEnd();
 	*/
+
+	for (int i = 0; i < 21; i++) {
+		for (int j = 0; j < 21; j++) {
+			simulacion(i,j,t);
+		}
+	}
+
 	glEnable(GL_LIGHTING);
 		
 	glDisable(GL_BLEND);
@@ -376,7 +407,7 @@ int main (int argc, char** argv) {
 
 	glutReshapeFunc(changeViewport);
 	glutDisplayFunc(render);
-	glutKeyboardFunc (Keyboard);
+	glutKeyboardFunc(Keyboard);
 		
 	GLenum err = glewInit();
 	if (GLEW_OK != err) {

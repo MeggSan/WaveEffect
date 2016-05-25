@@ -1,32 +1,30 @@
-﻿Compilación iniciada a las 24/05/2016 02:36:48 p. m..
+﻿Compilación iniciada a las 24/05/2016 10:24:17 p. m..
      1>Proyecto "C:\Users\Meggie\Documents\GitHub\WaveEffect\PlantillaOpenGL01\PlantillaOpenGL01.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:\dev\opengl\freeglut\include /I"C:\dev\opengl\glew-1.7.0\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(71): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(71): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(72): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(72): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(74): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(74): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(75): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(75): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(77): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(77): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(78): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(78): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(80): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(80): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(81): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(81): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(94): warning C4305: '+=' : truncamiento de 'double' a 'float'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(95): warning C4101: 'aspectratio' : variable local sin referencia
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(109): warning C4305: '+=' : truncamiento de 'double' a 'float'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(143): warning C4305: '+=' : truncamiento de 'double' a 'float'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(203): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(206): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(212): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(215): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(29): warning C4305: 'inicializando' : truncamiento de 'double' a 'float'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(35): warning C4305: 'inicializando' : truncamiento de 'double' a 'float'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(87): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(87): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(88): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(88): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(90): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(90): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(91): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(91): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(93): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(93): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(94): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(94): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(96): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(96): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(97): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(97): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(110): warning C4305: '+=' : truncamiento de 'double' a 'float'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(111): warning C4101: 'aspectratio' : variable local sin referencia
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(135): warning C4305: '+=' : truncamiento de 'double' a 'float'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(167): warning C4305: '+=' : truncamiento de 'double' a 'float'
      1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(222): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
      1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(225): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
      1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(231): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
@@ -37,17 +35,22 @@
      1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(253): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
      1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(260): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
      1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(263): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(290): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(291): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(298): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(299): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(300): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(283): warning C4101: 'zLocal' : variable local sin referencia
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(283): warning C4101: 'xExtent' : variable local sin referencia
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(284): warning C4101: 'loopX' : variable local sin referencia
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(283): warning C4101: 'xLocal' : variable local sin referencia
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(284): warning C4101: 'loopZ' : variable local sin referencia
-     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(283): warning C4101: 'zExtent' : variable local sin referencia
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(269): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(272): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(279): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(282): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(309): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(310): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(317): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(318): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(319): warning C4305: 'inicializando' : truncamiento de 'double' a 'GLfloat'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(387): warning C4244: 'argumento' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(302): warning C4101: 'zLocal' : variable local sin referencia
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(302): warning C4101: 'xExtent' : variable local sin referencia
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(303): warning C4101: 'loopX' : variable local sin referencia
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(302): warning C4101: 'xLocal' : variable local sin referencia
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(303): warning C4101: 'loopZ' : variable local sin referencia
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(302): warning C4101: 'zExtent' : variable local sin referencia
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Meggie\Documents\GitHub\WaveEffect\Debug\PlantillaOpenGL01.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86" /LIBPATH:C:\dev\opengl\freeglut\lib /LIBPATH:"C:\dev\opengl\glew-1.7.0\lib" glew32.lib freeglut.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Meggie\Documents\GitHub\WaveEffect\Debug\PlantillaOpenGL01.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Meggie\Documents\GitHub\WaveEffect\Debug\PlantillaOpenGL01.lib" /MACHINE:X86 Debug\main.obj
          PlantillaOpenGL01.vcxproj -> C:\Users\Meggie\Documents\GitHub\WaveEffect\Debug\PlantillaOpenGL01.exe
@@ -55,4 +58,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:01.08
+Tiempo transcurrido 00:00:01.05
