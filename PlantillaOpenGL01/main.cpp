@@ -120,10 +120,11 @@ void changeViewport(int w, int h) {
    glMatrixMode (GL_MODELVIEW);
 }
 
-float simulacion(float x, float y, float t) {
+float simulacion(float x, float z, float t) {
 
-	prodesc1 = dirX1*x + dirY1*y;
-	prodesc2 = dirX2*x + dirY2*y;
+	// float H = (A1 * (sin(D1 . (x,y) * w1 + t * phi1) ) + (A2 * (sin(D2(x,y) * w2 + t * phi2) )
+	prodesc1 = dirX1*x + dirY1*z;
+	prodesc2 = dirX2*x + dirY2*z;
 	//printf("%f", prodesc1);
 	h = (A1 * (sin(prodesc1 * W1 + t * phi1) ) ) + (A2 * (sin(prodesc2 * W2 + t * phi2) ) );
 	//printf("%f", h);
@@ -133,6 +134,12 @@ float simulacion(float x, float y, float t) {
 void animacion(int value) {
 	
 	t += 0.1;
+
+	for (int i = 0; i < 21; i++) {
+		for (int j = 0; j < 21; j++) {
+			ctlpointsNurbsSup[i][j][1] = simulacion(ctlpointsNurbsSup[i][j][0], ctlpointsNurbsSup[i][j][2], t);
+		}
+	}
 
 	glutTimerFunc(10,animacion,1);
     glutPostRedisplay();
@@ -219,77 +226,95 @@ void Keyboard(unsigned char key, int x, int y)
 	// L: Distancia entre cada ola
 	case 'a':
 		if (wave1 == true) {
-			L1 = L1 - 0.1;
+			L1 = L1 - 0.5;
 		}
 		else {
-			L2 = L2 - 0.1;
+			L2 = L2 - 0.5;
 		}
 		break;
 
 	case 'z':
 		if (wave1 == true) {
-			L1 = L1 + 0.1;
+			L1 = L1 + 0.5;
 		}
 		else {
-			L2 = L2 + 0.1;
+			L2 = L2 + 0.5;
 		}
 		break;
 
 	// A: altura de la ola
 	case 's':
 		if (wave1 == true) {
-			A1 = A1 - 0.1;
+			A1 = A1 - 0.5;
 		}
 		else {
-			A2 = A2 - 0.1;
+			A2 = A2 - 0.5;
 		}
 		break;
 
 	case 'x':
 		if (wave1 == true) {
-			A1 = A1 + 0.1;
+			A1 = A1 + 0.5;
 		}
 		else {
-			A2 = A2 + 0.1;
+			A2 = A2 + 0.5;
 		}
 		break;
 
 	// S: velocidad de la ola
 	case 'd':
 		if (wave1 == true) {
-			S1 = S1 - 0.1;
+			S1 = S1 - 0.5;
 		}
 		else {
-			S2 = S2 - 0.1;
+			S2 = S2 - 0.5;
 		}
 		break;
 
 	case 'c':
 		if (wave1 == true) {
-			S1 = S1 + 0.1;
+			S1 = S1 + 0.5;
 		}
 		else {
-			S2 = S2 + 0.1;
+			S2 = S2 + 0.5;
 		}
 		break;
 
 	// D: vector de dos coordenadas que determina la dirección de la ola
 	case 'f':
 		if (wave1 == true) {
-			S1 = S1 + 0.1;
+			dirX1 = dirX1 + 0.5;
 		}
 		else {
-			S2 = S2 + 0.1;
+			dirX2 = dirX2 + 0.5;
 		}
 		break;
 
 	case 'v':
+		if (wave1 == true) {
+			dirX1 = dirX1 - 0.5;
+		}
+		else {
+			dirX2 = dirX2 - 0.5;
+		}
 		break;
 
 	case 'g':
+		if (wave1 == true) {
+			dirY1 = dirY1 - 0.5;
+		}
+		else {
+			dirY2 = dirY2 - 0.5;
+		}
 		break;
 
 	case 'b':
+		if (wave1 == true) {
+			dirY1 = dirY1 + 0.5;
+		}
+		else {
+			dirY2 = dirY2 + 0.5;
+		}
 		break;
   }
 }
@@ -381,12 +406,6 @@ void render() {
 	}
 	glEnd();
 	*/
-
-	for (int i = 0; i < 21; i++) {
-		for (int j = 0; j < 21; j++) {
-			simulacion(i,j,t);
-		}
-	}
 
 	glEnable(GL_LIGHTING);
 		
