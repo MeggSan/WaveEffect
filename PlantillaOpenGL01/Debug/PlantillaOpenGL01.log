@@ -1,10 +1,14 @@
-﻿Compilación iniciada a las 25/05/2016 09:51:53 p. m..
+﻿Compilación iniciada a las 25/05/2016 10:11:19 p. m..
      1>Proyecto "C:\Users\Meggie\Documents\GitHub\WaveEffect\PlantillaOpenGL01\PlantillaOpenGL01.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IC:\dev\opengl\freeglut\include /I"C:\dev\opengl\glew-1.7.0\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
      1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(29): warning C4305: 'inicializando' : truncamiento de 'double' a 'float'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(30): warning C4305: 'inicializando' : truncamiento de 'double' a 'float'
      1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(35): warning C4305: 'inicializando' : truncamiento de 'double' a 'float'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(40): warning C4305: 'inicializando' : truncamiento de 'double' a 'float'
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(43): warning C4244: 'inicializando' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(44): warning C4244: 'inicializando' : conversión de 'double' a 'float'; posible pérdida de datos
      1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(87): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
      1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(87): warning C4244: 'argumento' : conversión de 'int' a 'GLfloat'; posible pérdida de datos
      1>c:\users\meggie\documents\github\waveeffect\plantillaopengl01\main.cpp(88): warning C4305: 'argumento' : truncamiento de 'double' a 'GLfloat'
@@ -63,4 +67,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:01.68
+Tiempo transcurrido 00:00:01.82

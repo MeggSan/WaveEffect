@@ -27,7 +27,7 @@ float t; // Variable global para la animacion
 
 // Variables para ola 1
 float A1 = 0.4;
-float W1 = 0.0;
+float W1 = 0.785;
 float S1 = 2.0;
 float L1 = 8.0;
 float dirX1 = 0.0;
@@ -37,11 +37,11 @@ float D1[2] = {dirX1, dirY1};
 
 // Variables para ola 2
 float A2 = 0.0;
-float W2 = 4.0;
+float W2 = 1.57;
 float S2 = 0.0;
 float L2 = 4.0;
-float dirX2 = 1.0;
-float dirY2 = 1.0;
+float dirX2 = 1.0/sqrt(2);
+float dirY2 = 1.0/sqrt(2);
 float phi2 = 0.0;
 float D2[2] = {dirX2, dirY2};
 
