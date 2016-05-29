@@ -6,12 +6,13 @@
 		Andres Navarro 11-10688
 		Meggie Sanchez 11-10939
 	Fecha de última actualización:
-		18/05/2016
+		25/05/2016
 */
 
 #include <GL\glew.h>
 #include <GL\freeglut.h>
 #include <iostream>
+#include <stdlib.h> 
 
 using namespace std;
 
@@ -22,44 +23,30 @@ using namespace std;
 // Variables booleanas para saber con cual ola se va a interactuar en el teclado
 bool wave1 = false;
 bool wave2 = false;
+bool activo = false;
 
 float t; // Variable global para la animacion
 
 // Variables para ola 1
 float A1 = 0.4;
-float W1 = 0.785;
 float S1 = 2.0;
 float L1 = 8.0;
 float dirX1 = 0.0;
 float dirY1 = -1.0;
-float phi1 = 1.57;
-float D1[2] = {dirX1, dirY1};
+float W1, phi1, normaliz1, prodesc1, dirX1nor, dirY1nor;
 
 // Variables para ola 2
 float A2 = 0.0;
-float W2 = 1.57;
 float S2 = 0.0;
 float L2 = 4.0;
-float dirX2 = 1.0/sqrt(2);
-float dirY2 = 1.0/sqrt(2);
-float phi2 = 0.0;
-float D2[2] = {dirX2, dirY2};
+float dirX2 = 1.0;
+float dirY2 = 1.0;
+float W2, phi2, normaliz2, prodesc2, dirX2nor, dirY2nor;
 
-// Ecuacion 2
-float h = 0.0;
+// Ecuacion para la simulacion
+float h;
 
-float prodesc1 = 0.0;
-float prodesc2 = 0.0;
-
-// Ecuacion 2: No es sumatoria porque son dos olas nada más
-// float H = (A1 * (sin(D1(x,y) * w1 + t * phi1) ) + (A2 * (sin(D2(x,y) * w2 + t * phi2) )
-
-// donde: w1 = 2*pi / L1
-// donde: w2 = 2*pi / L2
-// donde: phi1 = S1 x 2*pi / L1
-// donde: phi2 = S2 x 2*pi / L2
-
-GLfloat knotsSup[25];
+GLfloat knotsSup[25]; // Arreglo para la superficie knots
 
 GLfloat ctlpointsNurbsSup[21][21][3]; // Matriz para hacer los puntos de control
 
@@ -122,27 +109,42 @@ void changeViewport(int w, int h) {
 
 float simulacion(float x, float z, float t) {
 
-	// float H = (A1 * (sin(D1 . (x,y) * w1 + t * phi1) ) + (A2 * (sin(D2(x,y) * w2 + t * phi2) )
-	prodesc1 = dirX1*x + dirY1*z;
-	prodesc2 = dirX2*x + dirY2*z;
-	//printf("%f", prodesc1);
+	normaliz1 = sqrt(dirX1*dirX1 + dirY1*dirY1);
+	normaliz2 = sqrt(dirX2*dirX1 + dirY2*dirY2);
+
+	dirX1nor = dirX1 / normaliz1;
+	dirX2nor = dirX2 / normaliz2;
+	dirY1nor = dirY1 / normaliz1;
+	dirY2nor = dirY2 / normaliz2;
+
+	prodesc1 = dirX1nor*x + dirY1nor*z;
+	prodesc2 = dirX2nor*x + dirY2nor*z;
+
+	W1 = 2 * 3.1416 / L1;
+	W2 = 2 * 3.1416 / L2;
+	phi1 = S1 * 2 * 3.1416 / L1;
+	phi2 = S2 * 2 * 3.1416 / L2;
+
 	h = (A1 * (sin(prodesc1 * W1 + t * phi1) ) ) + (A2 * (sin(prodesc2 * W2 + t * phi2) ) );
-	//printf("%f", h);
 	return h;
 }
 
 void animacion(int value) {
 	
-	t += 0.1;
+	if (activo == true) {
 
-	for (int i = 0; i < 21; i++) {
-		for (int j = 0; j < 21; j++) {
-			ctlpointsNurbsSup[i][j][1] = simulacion(ctlpointsNurbsSup[i][j][0], ctlpointsNurbsSup[i][j][2], t);
+		t += 0.1;
+
+		// Cambia altura en Y en los correspondientes puntos de control
+		for (int i = 0; i < 21; i++) {
+			for (int j = 0; j < 21; j++) {
+				ctlpointsNurbsSup[i][j][1] = simulacion(ctlpointsNurbsSup[i][j][0], ctlpointsNurbsSup[i][j][2], t);
+			}
 		}
 	}
 
 	glutTimerFunc(10,animacion,1);
-    glutPostRedisplay();
+	glutPostRedisplay();
 }
 
 void init_surface() {
@@ -195,6 +197,26 @@ void init() {
    t = 0.0;
 }
 
+void imprimir() {
+	
+	system("cls"); // Para limpiar pantalla
+	printf("%s\n\n", "Ola 1");
+	printf("%s%f\n", "wL = ", L1);
+	printf("%s%f\n", "aP = ", A1);
+	printf("%s%f\n", "sP = ", S1);
+	printf("%s%f\n", "dirX = ", dirX1);
+	printf("%s%f\n\n", "dirY = ", dirY1);
+
+	printf("%s\n\n", "==================");
+
+	printf("%s\n\n", "Ola 2");
+	printf("%s%f\n", "wL = ", L2);
+	printf("%s%f\n", "aP = ", A2);
+	printf("%s%f\n", "sP = ", S2);
+	printf("%s%f\n", "dirX = ", dirX2);
+	printf("%s%f\n\n", "dirY = ", dirY2);
+}
+
 void Keyboard(unsigned char key, int x, int y)
 {
   switch (key)
@@ -217,103 +239,131 @@ void Keyboard(unsigned char key, int x, int y)
 
 	// Empezar la animacion de las olas
 	case 'r':
+		activo = true;
+		imprimir();
 		break;
   
 	// Detener la animacion de las olas
 	case 'p':
+		activo = false;
 		break;
 
 	// L: Distancia entre cada ola
 	case 'a':
 		if (wave1 == true) {
-			L1 = L1 - 0.5;
+			L1 = L1 - 0.1;
+			imprimir();
 		}
 		else {
-			L2 = L2 - 0.5;
+			L2 = L2 - 0.1;
+			imprimir();
 		}
 		break;
 
 	case 'z':
 		if (wave1 == true) {
-			L1 = L1 + 0.5;
+			L1 = L1 + 0.1;
+			imprimir();
 		}
 		else {
-			L2 = L2 + 0.5;
+			L2 = L2 + 0.1;
+			imprimir();
 		}
 		break;
 
 	// A: altura de la ola
 	case 's':
 		if (wave1 == true) {
-			A1 = A1 - 0.5;
+			A1 = A1 - 0.1;
+			imprimir();
 		}
 		else {
-			A2 = A2 - 0.5;
+			A2 = A2 - 0.1;
+			imprimir();
 		}
 		break;
 
+	// A: altura de la ola
 	case 'x':
 		if (wave1 == true) {
-			A1 = A1 + 0.5;
+			A1 = A1 + 0.1;
+			imprimir();
 		}
 		else {
-			A2 = A2 + 0.5;
+			A2 = A2 + 0.1;
+			imprimir();
 		}
 		break;
 
 	// S: velocidad de la ola
 	case 'd':
 		if (wave1 == true) {
-			S1 = S1 - 0.5;
+			S1 = S1 - 0.1;
+			imprimir();
 		}
 		else {
-			S2 = S2 - 0.5;
+			S2 = S2 - 0.1;
+			imprimir();
 		}
 		break;
 
+	// S: velocidad de la ola
 	case 'c':
 		if (wave1 == true) {
-			S1 = S1 + 0.5;
+			S1 = S1 + 0.1;
+			imprimir();
 		}
 		else {
-			S2 = S2 + 0.5;
+			S2 = S2 + 0.1;
+			imprimir();
 		}
 		break;
 
-	// D: vector de dos coordenadas que determina la dirección de la ola
+	// D: vector de dos coordenadas que determina la dirección de la ola - dirX1 y dirX2
 	case 'f':
 		if (wave1 == true) {
-			dirX1 = dirX1 + 0.5;
+			dirX1 = dirX1 - 0.1;
+			imprimir();
 		}
 		else {
-			dirX2 = dirX2 + 0.5;
+			dirX2 = dirX2 - 0.1;
+			imprimir();
 		}
 		break;
 
+	// D: vector de dos coordenadas que determina la dirección de la ola - dirX1 y dirX2
 	case 'v':
 		if (wave1 == true) {
-			dirX1 = dirX1 - 0.5;
+			dirX1 = dirX1 + 0.1;
+			imprimir();
 		}
 		else {
-			dirX2 = dirX2 - 0.5;
+			dirX2 = dirX2 + 0.1;
+			imprimir();
 		}
 		break;
 
+	// D: vector de dos coordenadas que determina la dirección de la ola - dirY1 y dirY2
 	case 'g':
 		if (wave1 == true) {
-			dirY1 = dirY1 - 0.5;
+			dirY1 = dirY1 - 0.1;
+			imprimir();
 		}
 		else {
-			dirY2 = dirY2 - 0.5;
+			dirY2 = dirY2 - 0.1;
+			imprimir();
 		}
 		break;
 
+	// D: vector de dos coordenadas que determina la dirección de la ola - dirY1 y dirY2
 	case 'b':
 		if (wave1 == true) {
-			dirY1 = dirY1 + 0.5;
+			dirY1 = dirY1 + 0.1;
+			imprimir();
 		}
 		else {
-			dirY2 = dirY2 + 0.5;
+			dirY2 = dirY2 + 0.1;
+			imprimir();
 		}
 		break;
   }
